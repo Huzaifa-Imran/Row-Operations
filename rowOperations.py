@@ -17,12 +17,14 @@ def rowOperation():
     if second[0] == '':
         second[0] = '1'
         
-    
     first = [int(i) for i in first]
     second = [int(i) for i in second]
-    arg1 = matrix[first[1]-1] * first[0]
-    arg2 = matrix[second[1]-1] * second[0]
-    matrix[first[1]-1] = ops[operation[1]](arg1, arg2)
+    try:
+        arg1 = matrix[first[1]-1] * first[0]
+        arg2 = matrix[second[1]-1] * second[0]
+        matrix[first[1]-1] = ops[operation[1]](arg1, arg2)
+    except IndexError:
+        print("That row doesn't exists.")
     print(matrix)
     return True
     
