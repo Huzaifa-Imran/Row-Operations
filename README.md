@@ -5,4 +5,4 @@ Make sure you have Python compiler installed on your computer.
 
 Run "pip install requirements.txt" on your command prompt.
 
-Next, run "python "path_to_file.py" to run the program.
+Next, run "python path_to_file.py" to run the program.
