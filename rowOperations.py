@@ -3,6 +3,14 @@ import operator
 import fractions
 import copy as cp
 
+def printMatrix():
+    for i in matrix:
+        print('[\t',end='')
+        for j in i:
+            print(j, '\t', end='')
+        print(']')
+
+
 def eliminateColumn(row, col, j):
     midop = '-'
     secondCoef = matrix[j][col]
@@ -24,23 +32,24 @@ def eliminateColumn(row, col, j):
             secondCoef = ''
             
         print(f"\n{firstCoef}R{j+1} {midop} {secondCoef}R{row+1}\n")
-        print(matrix.astype(str))
+        printMatrix()
 
 def swapPivot(row, j):
     temp = cp.copy(matrix[row])
     matrix[row] = cp.copy(matrix[j])
     matrix[j] = cp.copy(temp)
     print(f"\nR{row+1} -> R{j+1}\n")
-    print(matrix.astype(str))
+    printMatrix()
 
 def reducePivot(row, col):
     print(f"\nR{row+1} * {1/matrix[row][col]}\n")
     matrix[row] = matrix[row] / matrix[row][col]
-    print(matrix.astype(str))
+    printMatrix()
 
 def calculateRREF():
     row = 0
     col = 0
+    printMatrix()
     while col < len(matrix[0]) and row < len(matrix):
         if matrix[row][col] == 0:
             for j in range(row+1, len(matrix)):
@@ -78,6 +87,7 @@ def calculateRREF():
 def calculateREF():
     col = 0
     row = 0
+    printMatrix()
     while col < len(matrix[0]) and row < len(matrix):
         if matrix[row][col] == 0:
             for j in range(row+1, len(matrix)):
@@ -134,7 +144,7 @@ def rowOperation():
         else:
             matrix[first[1]-1] = ops[operation[1]](arg1, arg2)
         
-        print(matrix.astype(str))
+        printMatrix()
     except IndexError:
         print("That row doesn't exists.")
     except ValueError:
@@ -165,7 +175,7 @@ def main():
 
         matrix = np.array(matrix)
         print('\nFollow the syntax below to apply row operations\n2R1 + R2\tMultiplies R1 by 2 and adds R2\nR1 * 4\t\tMultiplies R1 by 4\nR1 / 3\t\tDivides R1 by 3\nR1 -> R2\tSwaps R1 with R2\n')
-        print(matrix.astype(str))
+        printMatrix()
 
         while rowOperation():
             pass
