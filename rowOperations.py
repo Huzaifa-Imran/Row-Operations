@@ -41,7 +41,7 @@ def reducePivot(row, col):
 def calculateRREF():
     row = 0
     col = 0
-    while col < len(matrix) and row < len(matrix):
+    while col < len(matrix[0]) and row < len(matrix):
         if matrix[row][col] == 0:
             for j in range(row+1, len(matrix)):
                 if matrix[j][col] == 1:
@@ -78,7 +78,7 @@ def calculateRREF():
 def calculateREF():
     col = 0
     row = 0
-    while col < len(matrix) and row < len(matrix):
+    while col < len(matrix[0]) and row < len(matrix):
         if matrix[row][col] == 0:
             for j in range(row+1, len(matrix)):
                 if matrix[j][col] != 0:
