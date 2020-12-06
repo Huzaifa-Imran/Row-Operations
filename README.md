@@ -1,5 +1,5 @@
 # Row-Operations
-Apply Row Operations to your Matrix without having to Calculate the Outcome
+Automatically transform matrix to REF, RREF or apply Row Operations to your Matrix without having to Calculate the Outcome
 
 Make sure you have Python compiler installed on your computer.
 
